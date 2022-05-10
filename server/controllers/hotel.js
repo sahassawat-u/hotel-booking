@@ -12,13 +12,14 @@ export const createHotel = async (req, res, next) => {
 };
 
 export const updateHotel = async (req, res, next) => {
-  console.log(req.query);
   try {
+    console.log(req.query);
     const updatedHotel = await Hotel.findByIdAndUpdate(
       req.params.id,
       { $set: req.query },
       { new: true }
     );
+    console.log(updatedHotel);
     res.status(200).json(updatedHotel);
   } catch (error) {
     next(error);
