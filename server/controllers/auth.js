@@ -38,8 +38,8 @@ export const login = async (req, res, next) => {
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT
     );
-
     const { password, isAdmin, ...otherDetails } = user._doc;
+
     res
       .cookie("access_token", token, {
         httpOnly: true,
@@ -49,4 +49,13 @@ export const login = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export const logout = async (req, res, next) => {
+  console.log("session", req.session);
+  res.clearCookie("access_token");
+  // req.session.destroy(function (err) {
+  //   req.logout();
+  // });
+  res.send("User has been logged out");
 };
