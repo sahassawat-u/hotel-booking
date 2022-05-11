@@ -94,12 +94,16 @@ export const countByType = async (req, res, next) => {
 };
 
 export const getHotelRooms = async (req, res, next) => {
+  console.log("hi");
   try {
     const hotel = await Hotel.findById(req.params.id);
-    const list = Promise.all;
-    hotel.rooms.map((room) => {
-      return Room.findById(room);
-    });
+    console.log(hotel);
+    const list = await Promise.all(
+      hotel.rooms.map((room) => {
+        return Room.findById(room);
+      })
+    );
+    console.log("list", list);
     res.status(200).json(list);
   } catch (error) {
     next(error);

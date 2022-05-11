@@ -51,11 +51,11 @@ export const login = async (req, res, next) => {
   }
 };
 
-export const logout = async (req, res, next) => {
-  console.log("session", req.session);
-  res.clearCookie("access_token");
-  // req.session.destroy(function (err) {
-  //   req.logout();
-  // });
-  res.send("User has been logged out");
-};
+// export const logout = async (req, res, next) => {
+//   console.log("session", req.session);
+//   res.clearCookie("access_token");
+//   // req.session.destroy(function (err) {
+//   //   req.logout();
+//   // });
+//   res.send("User has been logged out");
+// };

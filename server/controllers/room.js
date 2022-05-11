@@ -77,11 +77,11 @@ export const updateRoomAvailability = async (req, res, next) => {
       { "roomNumbers._id": req.params.id },
       {
         $push: {
-          "roomNumbers.$.unavailableDates": req.body.date,
+          "roomNumbers.$.unavailableDates": req.body.dates,
         },
       }
     );
-    res.status(200).json(updatedRoom);
+    res.status(200).json("Rom has been updated");
   } catch (error) {
     next(error);
   }

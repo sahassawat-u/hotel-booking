@@ -2,45 +2,52 @@ import useFetch from "../../hooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
-  const {data,loading,error} = useFetch("/hotels/countByCity?cities=Bangkok,Non")
-  
+  const { data, loading, error } = useFetch(
+    "/hotels/countByCity?cities=Bangkok,Chiang Mai,Phuket"
+  );
+
   return (
     <div className="featured">
-      {loading ? ("Loading please wait") :
-      (<><div className="featuredItem">
-        <img
-          src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
-          alt=""
-          className="featuredImg"
-        />
-        <div className="featuredTitles">
-          <h1>Bangkok</h1>
-          <h2>{data[0]}</h2>
-        </div>
-      </div>
-      
-      <div className="featuredItem">
-        <img
-          src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
-          alt=""
-          className="featuredImg"
-        />
-        <div className="featuredTitles">
-          <h1>Nonthaburi</h1>
-          <h2>{data[1]}</h2>
-        </div>
-      </div>
-      <div className="featuredItem">
-        <img
-          src="https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o="
-          alt=""
-          className="featuredImg"
-        />
-        <div className="featuredTitles">
-          <h1>Austin</h1>
-          <h2>532 properties</h2>
-        </div>
-      </div></>)}
+      {loading ? (
+        "Loading please wait"
+      ) : (
+        <>
+          <div className="featuredItem">
+            <img
+              src="https://www.tripsavvy.com/thmb/IkoPZKwM5BmhWB-064flnLZWylo=/3804x3804/smart/filters:no_upscale()/bangkok-at-sunset-5bd5f2f746e0fb005818e042.jpg"
+              alt=""
+              className="featuredImg"
+            />
+            <div className="featuredTitles">
+              <h1>Bangkok</h1>
+              <h2>{data[0]} Properties</h2>
+            </div>
+          </div>
+
+          <div className="featuredItem">
+            <img
+              src="https://cdn.getyourguide.com/img/tour/5d355ccf881c5.jpeg/98.jpg"
+              alt=""
+              className="featuredImg"
+            />
+            <div className="featuredTitles">
+              <h1>Chiang Mai</h1>
+              <h2>{data[1]} Properties</h2>
+            </div>
+          </div>
+          <div className="featuredItem">
+            <img
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/4b/5d/c8/caption.jpg?w=700&h=500&s=1&cx=2606&cy=1838&chk=v1_a61182fd4040ed4ecc4e"
+              alt=""
+              className="featuredImg"
+            />
+            <div className="featuredTitles">
+              <h1>Phuket</h1>
+              <h2>{data[2]} Properties</h2>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

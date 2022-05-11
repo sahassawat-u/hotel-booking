@@ -11,8 +11,7 @@ import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 const router = express.Router();
 // Create
 router.post("/", createUser);
-// router.get("/checkadmin/:id", verifyAdmin, (req, res) => {
-//   res.json("you admin");
+
 // });
 // Update
 router.put("/:id", verifyUser, updateUser);
